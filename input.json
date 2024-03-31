@@ -1,0 +1,18 @@
+﻿[
+  {
+    "Name": "Example",
+    "MarketingPreference": "OnSpecifiedDateOfMonth 1"
+  },
+  {
+    "Name": "Example2",
+    "MarketingPreference": "OnSpecifiedDayOfWeek [1,2,5]"
+  },
+  {
+    "Name": "Example3",
+    "MarketingPreference": "EveryDay"
+  },
+  {
+    "Name": "Example4",
+    "MarketingPreference": "Never"
+  }
+]
