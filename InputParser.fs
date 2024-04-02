@@ -5,8 +5,8 @@
     open System.Text.Json
     open TechnicalTest.Types
            
-    let parseDateRange (startString : string) : Result<DateOnly *  DateOnly, string> =
-        let parseDateString (input : string) : Result<DateOnly, string> =
+    let parseDateRange (startString: string) : Result<DateOnly *  DateOnly, string> =
+        let parseDateString (input: string) : Result<DateOnly, string> =
             match DateOnly.TryParse input with
             | true, date -> Ok date
             | false, _ ->  Error "Invalid date format"
@@ -17,7 +17,7 @@
         | _ ->
             Error $"Date range invalid, should be in the format of dd-MM-yyyy"
 
-    let readJsonFromFile (filePath : string) : Result<string, string> =
+    let readJsonFromFile (filePath: string) : Result<string, string> =
         try
             Ok (File.ReadAllText(filePath))
         with
@@ -27,10 +27,10 @@
             Error ex.Message
 
     let validateAndRemoveDuplicates customers =
-        let isValidDate (date : int) =
+        let isValidDate (date: int) =
             date >= 1 && date <= 28
         
-        let isValidDay (days : Set<DayOfWeek>) =
+        let isValidDay (days: Set<DayOfWeek>) =
             let minDay = DayOfWeek.Sunday
             let maxDay = DayOfWeek.Saturday
             days |> Set.forall (fun day -> day >= minDay && day <= maxDay)
@@ -51,7 +51,7 @@
 
         List.fold customerValidCheck ([], Set.empty) customers |> fst
 
-    let generateCustomerData (filePath : string) : Result<List<Customer>, string> =
+    let generateCustomerData (filePath: string) : Result<List<Customer>, string> =
        match readJsonFromFile filePath with
        | Ok customJson ->
            try

@@ -38,8 +38,10 @@
                     OnSpecifiedDayOfWeek (Set.ofSeq days)
                 | _ -> failwith "Invalid MarketingPreferences value in JSON"
         
+    type CustomerId = string    
+    
     type Customer =
        {
-          Name: String
+          Name: CustomerId
           MarketingPreference : MarketingPreferences
        }
